@@ -1,0 +1,18 @@
+{
+  "name": "vuejs_nodejs_socketio_chatapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "*",
+    "socket.io": "*"
+  },
+  "devDependencies": {
+    "nodemon": "*"
+  },
+  "author": "sejoonkim",
+  "license": "ISC"
+}
