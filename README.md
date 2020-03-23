@@ -1,4 +1,4 @@
-# Chat App 
+# Chat App
 
 ### NodeJS, VueJS, SocketIO
 
@@ -32,9 +32,9 @@
      // do not need to npm install, it is already in NodeJS
      const http = require("http").Server(app);
      const io = require("socket.io")(http);
-     
+
      const PATH = process.env.PORT || 3000;
-     
+
      http.listen(PATH, () => {
        console.log("Listening on port %s", PATH);
      });
@@ -43,3 +43,12 @@
 5. > npm run dev
 
    - "Listening on port 3000"
+
+6. io.on("connection") > [tutorialsPoint_socketio](https://www.tutorialspoint.com/socket.io/index.htm)
+   - socket.emit("loggedIn")
+   - socket.on("newuser")
+     - io.emit("userOnline")
+   - socket.on("msg")
+     - io.emit("msg")
+   - socket.on("disconnect")
+     - io.emit("userLeft")
