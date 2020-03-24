@@ -2,6 +2,8 @@
 
 ### NodeJS, VueJS, SocketIO
 
+![alt](./gif/ChatRoom.gif)
+
 <br/>
 
 ## Node
@@ -52,3 +54,70 @@
      - io.emit("msg")
    - socket.on("disconnect")
      - io.emit("userLeft")
+
+<br/>
+
+## Vue
+
+1. > vue ui
+
+   - create new project
+   - install **socket.io-client**
+
+   - install **node-sass**, **sass-loader**
+   - run serve
+
+2. client/
+
+- delete Helloworld.vue
+
+- modify App.vue
+
+  - reset style
+
+  - ```javascript
+    // connect with NodeJS
+    socket: io("http://localhost:3000"),
+    ```
+
+  - mounted = as soon as code gets mounted to the DOM, run
+
+  - ```javascript
+    this.socket.on("loggedIn", data => {
+      //...
+      this.socket.emit("newuser", this.username);
+    });
+    ```
+
+  - on = standby for a event to trigger
+
+  - emit = broadcast an event
+
+  - Add event listeners
+
+    - ```javascript
+      listen: function () {
+      	this.socket.on('userOnline', user => {
+      	this.users.push(user);
+      });
+      }
+      ```
+
+- create ChatRoom.vue
+
+  - ```javascript
+    v-on:click="something" ----> v-on:submit="something"
+    ```
+
+  - ```javascript
+    // Vue emit
+    this.$emit("sendMessage");
+    ```
+
+  - scss
+
+    - flex: 1 => cover whole page
+
+- App.vue
+
+  - create sendMessage function
